@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hotel</title>
+</head>
+<body>
+
+<div style="text-align:center;">
+    <img src="E:\minho.jfif" alt="minho bonito">
+</div>
+
+<div style="text-align:center;">
+    <p id="hora"></p>
+</div>
+
+<script>
+function mostrarHora() {
+    var fecha = new Date();
+    var hora = fecha.getHours();
+    var minutos = fecha.getMinutes();
+    var segundos = fecha.getSeconds();
+    var formatoHora = hora + ":" + minutos + ":" + segundos;
+    document.getElementById("hora").innerText = formatoHora;
+}
+setInterval(mostrarHora, 1000);
+mostrarHora();
+</script>
+
+<div style="text-align:center;">
+    <button onclick="mostrarInformacion('Inicio')">Inicio</button>
+    <button onclick="mostrarInformacion('Reservaciones')">Reservaciones</button>
+    <button onclick="mostrarInformacion('Sucursales')">Sucursales</button>
+    <button onclick="mostrarInformacion('Ingresar')">Ingresar</button>
+    <button onclick="mostrarInformacion('Sobre')">Servicios</button>
+</div>
+
+<div id="info_flor"></div>
+<div id="imagen_flor"></div>
+
+
+<script>
+function validarNumero(input) {
+var numero = input.value.trim();
+if (!numero.match(/^\d*$/)) {
+alert("Por favor, ingrese solo números.");
+input.value = "";
+}
+}
+function mostrarInformacion(info) {
+    let informacion = '';
+    let imagen = '';
+
+if (info === 'Inicio') {
+    informacion =  '<div style="text-align:center;">'+
+                    '<img src="E:\magia.jfif" alt="minho te amo">'+
+                '</div>'+
+                '<iframe style="border-radius:12px" src="https://open.spotify.com/embed/track/7Jsnf6VqzxcELRaIrNBKx2?utm_source=generator" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>'+
+                '<div style="text-align:center;">'+
+                    '<img src="tar.jfif" alt="hola">'+
+                '</div>';
+} else if (info === 'Reservaciones') {
+    informacion = '<div style="text-align:center;"><h2>Formulario de Reservacion</h2>' +
+                  '<form id="myForm">'+
+                  '<label for="fname">Nombre:</label>'+
+                  '<input type="text" id="fname" name="fname"><br><br>'+
+                  '<label for="lname">Apellido:</label>'+
+                  '<input type="text" id="lname" name="lname"><br><br>'+
+                  '<input type="submit" value="Enviar">'+
+                  '<button type="reset">Reiniciar</button><br>'+
+                  '<form>' +
+                  '<label for="huespedesadultos">Numero de huespedes adultos:</label><br>' +
+                  '<input type="text" id="huespedesadultos" name="huespedesadultos" oninput="validarNumero(this)" maxlength="2"><br><br>' +
+                  '<label for="huespedesninos">Número de huespedes infantes:</label><br>' +
+                  '<input type="text" id="huespedesninos" name="huespedesninos" oninput="validarNumero(this)" maxlength="2"><br><br>' +
+                  '<label for="huespedescaninos">Mascotas:</label><br>' +
+                  '<input type="text" id="huespedescaninos" name="huespedescaninos" oninput="validarNumero(this)" maxlength="2"><br><br>' +
+                  '<label for="habitacion">Tipo de habitación:</label><br>' +
+                  '<input type="radio" id="habitacion1" name="habitacion" value="Individual">' +
+                  '<label for="habitacion1">Individual</label><br>' +
+                  '<input type="radio" id="habitacion2" name="habitacion" value="Doble">' +
+                  '<label for="habitacion2">Doble</label><br>' +
+                  '<input type="radio" id="habitacion3" name="habitacion" value="Suite">' +
+                  '<label for="habitacion3">Suite</label><br><br>' +
+                  '<input type="submit" value="Enviar">' +
+                  '</form>' +
+                  '<br><br>' +
+                  '<form id="miFormulario">' +
+                  '<label for="fecha">Selecciona su fecha de hospedaje:</label>' +
+                  '<input type="date" id="fecha" name="fecha">' +
+                  '<br><br>' +
+                  '<input type="button" value="Enviar" onclick="enviarFormulario()">' +
+                  '</form>' +
+                  '<form id="miForm">' +
+                  '<br><br>' +
+		  '<label for="color">Seleccione un color para su tarjeta de hotel:</label>'+
+                  ' <input type="color" id="color" name="color">'+
+                  ' <input type="button" value="Enviar" onclick="enviarForm()">'+
+		  '</form>'+
+                  '</div>';
+                  
+
+  } else if (info === 'Sucursales') {
+    informacion = '<center>' +
+                    '<li><a href="#video">Introduccion</a></li>' +
+                    '<li><a href="#cancun">Cancun</a></li>' +
+                    '<li><a href="#acapulco">Acapulco</a></li>' +
+                    '<li><a href="#carmen">Playa del Carmen</a></li>' +
+                    '</center>' +
+                    '<br><br>' +
+                    '<section id="video">' +
+                    '<center><iframe width="640" height="360" src="https://www.youtube.com/embed/Sht15M5ywB8?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></center>' +
+                    '<br><br><br><br><br><br><br><br><br><br><br><br>' +
+                    '</section>' +
+                    '<section id="cancun">' +
+                    '<center><p><b>Cancun Resort</b></p>' +
+                    '<iframe width="600" height="400" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/18/7f/6b/d3/pool-excellence-playa.jpg?w=600&amp;h=400&amp;s=1" frameborder="0" allowfullscreen></iframe>' +
+                    '<p>Nuestro hotel es una opción moderna y auténticamente mexicana</p>'+
+                     '<p>ubicada en el centro de la ciudad. Su diseño y decoración reflejan la rica</p>'+
+                     '<p>cultura y tradiciones de México, brindando a los huéspedes una</p>'+
+                     '<p>experiencia única desde el momento en que ingresan. Contamos con</p>'+
+                     '<p>una amplia piscina donde tanto niños como adultos podrán refrescarse y</p>'+
+                     '<p>disfrutar del sol. Junto a la piscina, se encuentra un atractivo pool bar,</p>'+
+                     '<p>donde podrás disfrutar de una variedad de bebidas refrescantes y cócteles</p>'+
+                     '<p>tropicales mientras te relajas junto al agua.<br></p>'+
+                     '<p>Disfruta en familia en nuestro restaurante que ofrece deliciosos platillos</p>'+
+                     '<p>mexicanos y opciones internacionales. Podrás disfrutar de auténticos</p>'+
+                     '<p>sabores mexicanos, desde tacos y enchiladas hasta guacamole fresco y</p>'+
+                     '<p>salsas picantes. Además, el restaurante también ofrece opciones </p>'+
+                     '<p>infantiles para los más pequeños de la familia.<br><br><br></p></center>' +
+                     '<br><br><br><br><br><br><br><br><br><br><br><br>' +
+                    '</section>' +
+                    '<section id="acapulco">' +
+                    '<center><p><b>Acapulco Resort</b></p>' +
+                    '<iframe width="600" height="400" src="https://i0.wp.com/foodandpleasure.com/wp-content/uploads/2023/04/hoteles-acapulco-AMRCollection-2.webp?resize=600%2C400&amp;ssl=1" jsaction="VQAsE" class="sFlh5c pT0Scc iPVvYb" style="max-width: 600px; height: 371px; margin: 0px; width: 557px;" alt="Los 8+1 hoteles más románticos de Acapulco" jsname="kn3ccd" aria-hidden="false">></iframe>' +
+                    '<p>Nuestro Hotel Acapulco es un hotel de lujo, con estilo</p>'+
+                    '<p>minimalista y elegancia desde su arquitectura, hasta las amenidades. </p>'+
+                    '<p>Su alberca es la más grande de la bahía y tiene instalaciones perfectas para convertir </p>'+
+                    '<p>tus vacaciones en Acapulco en un sueño hecho realidad. </p></center>'+
+                    '<br><br><br><br><br><br><br><br><br><br><br><br>' +
+                    '</section>' +
+                    '<section id="carmen">' +
+                    '<center><p><b>Playa del Carmen Resort</b></p>' +
+                    '<iframe width="600" height="400" src="https://imgcy.trivago.com/c_limit,d_dummy.jpeg,f_auto,h_600,q_auto,w_600//partner-images/cb/32/c3e3fb73bf1c611656ff1cd3da80700f5b21d0dd1de2dc0ffde794f0e2ec.jpeg" jsaction="VQAsE" class="sFlh5c pT0Scc iPVvYb" style="max-width: 600px; height: 371px; margin: 0px; width: 557px;" alt="Todo el departamento o casa Enjoy Paradise And Make It Your Home !!!, Playa  del Carmen, México - www.trivago.com.mx" jsname="kn3ccd" aria-hidden="false">></iframe>' +
+                    '<p>Las habitaciones de Playa Del Carmen Hotel ofrecen</p>' +
+                    '<p>frigorífico, cocinita y aire acondicionado, y los huéspedes </p>' +
+                    '<p>pueden estar conectados con internet gratuito. Además, </p>' +
+                    '<p>durante la estancia en Playa Del Carmen Hotel los </p>' +
+                    '<p>huéspedes tienen acceso a recepción abierta 24 horas. </p>' +
+                    '<p>También puedes disfrutar de piscina y restaurante.</p></center>' +
+                    '<br><br><br><br><br><br><br><br><br><br><br><br>' +
+                    '</section>';
+} else if (info === 'Ingresar') {
+    informacion = '<center><h2>Bienvenid@ de vuelta !</h2>' +
+        '<form action="" id="on">' +
+        '<input type="text" id="no" required maxlength="10" size="10" placeholder="Ingrese Usuario"/>' +
+        '<button type="submit">Ingresar</button>' +
+        '</form>' +
+        '<form id="password-form">' +
+        '<input type="password" id="password" placeholder="Ingrese la contraseña">' +
+        '<br>' +
+        '<input type="submit" value="Ingresar">' +
+        '</form>' +
+        '</form> '+
+        '<div id="message"></div></center>' +
+        '<div style="text-align:center;">'+
+        '<img src="rese.jfif" alt="minho te amo">'+
+        '</div>';
+} else if (info === 'Sobre') {
+    informacion = '<center><h2>Servicios</h2>' +
+                  '<div style="display: inline-block;">' +
+                  '<p>Gimnasio</p>' +
+                  '<img src="https://st5.depositphotos.com/17945850/64405/i/450/depositphotos_644054996-stock-photo-black-home-gym-room-fully.jpg" jsaction="VQAsE" class="sFlh5c pT0Scc iPVvYb" style="max-width: 300px; height: auto; margin: 0px;" alt="Gimnasio">' +
+                  '</div>' +
+                  '<div style="display: inline-block;">' +
+                  '<p>Piscina y Pool Bar</p>' +
+                  '<img src="https://i.pinimg.com/originals/0d/42/88/0d4288d22fcf0932217eaf52deae9ac3.jpg" jsaction="VQAsE" class="sFlh5c pT0Scc iPVvYb" style="max-width: 300px; height: auto; margin: 0px;" alt="Piscina y Pool Bar">' +
+                  '</div>' +
+                  '<div style="display: inline-block;">' +
+                  '<p>Restaurante</p>' +
+                  '<img src="https://i0.wp.com/foodandpleasure.com/wp-content/uploads/2022/09/restaurantes-en-hoteles-mexico-ixim.jpeg?resize=600%2C400&amp;ssl=1" jsaction="VQAsE" class="sFlh5c pT0Scc iPVvYb" style="max-width: 300px; height: auto; margin: 0px;" alt="Restaurante">' +
+                  '</div>' +
+                  '<div style="display: inline-block;">' +
+                  '<p>Eventos ejecutivos</p>' +
+                  '<img src="https://belairuniquecdmx.com/assets/img/galeria/BelAir_Unique_Salon-m.jpg" jsaction="VQAsE" class="sFlh5c pT0Scc iPVvYb" style="max-width: 300px; height: auto; margin: 0px;" alt="Eventos ejecutivos">' +
+                  '</div>' +
+                  '</center>'+
+'<center>'+
+'<h2>Verifique si se encuentra en el rago de edad para usar la piscina</h2>'+ 
+'</center>'+
+'<center>'+
+'<input type="number" id="numero" placeholder="Ingresa un número">'+
+'<button onclick="verificarRango()">Verificar</button>'+
+'<p id="resultado"></p>'+
+  '</center>'+
+'<form action="" onsubmit="Mensaje()">'+
+'<center>'+
+'<h3>¿Como calificaria los servicios?:</h3>'+
+'</center>'+
+'<br>'+
+'<center>'+
+        '<input type="text" id="cal" >'+
+'</center>'+
+'<center>'+
+'<button type="submit">Enviar</button>'+
+'</center>'
+;
+}
+
+    document.getElementById('info_flor').innerHTML = informacion;
+    document.getElementById('imagen_flor').innerHTML = imagen;
+}
+
+function enviarFormulario() {
+    var fechaSeleccionada = document.getElementById("miFormulario").elements["fecha"].value;
+    alert("Listo ! Su reservacion esta hecha para el dia: " + fechaSeleccionada);
+}
+  function enviarForm() {
+                  var colorSeleccionado = document.getElementById("color").value;
+		  alert("Color seleccionado: " + colorSeleccionado);
+}
+function Mensaje(){
+	alert("Se ha enviado tus respuestas");
+	}	
+
+
+function verificarRango() {
+  var numero = document.getElementById('numero').value;
+  if (numero > 17 && numero < 100) {
+    document.getElementById('resultado').innerHTML = 'Usted se encuentra en el rango de edad';
+  } else {
+    document.getElementById('resultado').innerHTML = 'Usted no se encuentra en el rango de edad';
+  }
+}
+
+</script>
+</body>
+</html>
